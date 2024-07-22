@@ -1,0 +1,203 @@
+/* * * * * * *
+ *   FONTS   *
+ * * * * * * */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("./assets/fonts/Fraunces/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/* * * * * * * * *
+ *   VARIABLES   *
+ * * * * * * * * */
+
+:root {
+  --clr-primary-green: hsl(158, 36%, 37%);
+  --clr-primary-green-dark: hsl(156, 42%, 18%);
+  --clr-primary-cream: hsl(30, 38%, 92%);
+
+  --clr-neutral-900: hsl(212, 21%, 14%);
+  --clr-neutral-400: hsl(227, 10%, 34%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-sans: "Montserrat", sans-serif;
+  --ff-serif: "Fraunces", serif;
+
+  --fw-bold: 700;
+  --fw-normal: 500;
+
+  --fs-500: 2.15rem;
+  --fs-400: 1rem;
+  --fs-300: 0.75rem;
+}
+
+/* * * * * * *
+ *   RESET   *
+ * * * * * * */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+}
+
+/* * * * * * * *
+ *   GENERAL   *
+ * * * * * * * */
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+
+  font-family: var(--ff-sans);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-normal);
+  line-height: 1.6;
+  color: var(--clr-neutral-400);
+
+  background-color: var(--clr-primary-cream);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* * * * * * *
+ *   CARD    *
+ * * * * * * */
+
+/* card layout */
+
+.product-card {
+  max-width: 650px;
+  width: 100%;
+
+  background-color: var(--clr-neutral-100);
+  border-radius: 1rem;
+}
+
+.product-card__content {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+/* product image */
+
+.product-card__image {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+@media (min-width: 650px) {
+  .product-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-card__image {
+    border-top-right-radius: 0;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+}
+
+/* product title */
+
+.product-card__content .title {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  color: var(--clr-neutral-900);
+}
+
+/* product type */
+
+.product-card__content .product-type {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+/* product price */
+
+.product-card__content .price {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.price .current {
+  font-family: var(--ff-serif);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary-green);
+}
+
+.price .original {
+  text-decoration: line-through;
+}
+
+/* add to cart button */
+
+.product-card__content .add-to-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 0.75rem;
+
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-100);
+
+  background-color: var(--clr-primary-green);
+  border: none;
+  border-radius: 0.6rem;
+
+  transition: background-color 175ms ease-in-out;
+}
+
+.product-card__content .add-to-cart > img {
+  height: 16px;
+  width: 16px;
+}
+
+.product-card__content .add-to-cart:hover {
+  background-color: var(--clr-primary-green-dark);
+  cursor: pointer;
+}
